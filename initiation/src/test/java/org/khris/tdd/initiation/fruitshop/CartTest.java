@@ -26,7 +26,7 @@ public class CartTest {
             " 3, 200",
             "10, 500"
     })
-    public void cashInExpectedAmountForApplesQuantity(int quantity, int expectedAmount) {
+    public void checkoutExpectedAmountForApplesQuantity(int quantity, int expectedAmount) {
 
         // GIVEN
         cart.addFruit(APPLE, quantity);
@@ -44,7 +44,7 @@ public class CartTest {
             " 4,  450",
             "12, 1350"
     })
-    public void cashInExpectedAmountForBananasQuantity(int quantity, int expectedAmount) {
+    public void checkoutExpectedAmountForBananasQuantity(int quantity, int expectedAmount) {
 
         // GIVEN
         cart.addFruit(BANANA, quantity);
@@ -62,7 +62,7 @@ public class CartTest {
             " 6,  450",
             "14, 1050"
     })
-    public void cashInExpectedAmountForCherriesQuantity(int quantity, int expectedAmount) {
+    public void checkoutExpectedAmountForCherriesQuantity(int quantity, int expectedAmount) {
 
         // GIVEN
         cart.addFruit(CHERRY, quantity);
@@ -75,7 +75,7 @@ public class CartTest {
     }
 
     @Test
-    public void noCashInForEmptyBasket() {
+    public void noCheckoutForEmptyCart() {
 
         // GIVEN
         // Empty cart
@@ -88,7 +88,7 @@ public class CartTest {
     }
 
     @SuppressWarnings("unused")
-    private Object[][] parametersForCashInExpectedAmountForFruitQuantities() {
+    private Object[][] parametersForCheckoutExpectedAmountForFruitQuantities() {
         return new Object[][]{
 
                 // @formatter:off
@@ -110,10 +110,10 @@ public class CartTest {
 
     @Test
     @Parameters
-    public void cashInExpectedAmountForFruitQuantities(List<Tuple> fruitQuantities, int expectedAmount) {
+    public void checkoutExpectedAmountForFruitQuantities(List<Tuple> fruitQuantities, int expectedAmount) {
 
         // GIVEN
-        givenTheBasketContains(fruitQuantities);
+        givenTheCartContains(fruitQuantities);
 
         // WHEN
         int totalAmount = cart.getTotalAmount();
@@ -122,7 +122,7 @@ public class CartTest {
         assertThat(totalAmount).isEqualTo(expectedAmount);
     }
 
-    private void givenTheBasketContains(List<Tuple> fruitQuantities) {
+    private void givenTheCartContains(List<Tuple> fruitQuantities) {
         for (Tuple fruitQuantity : fruitQuantities) {
             cart.addFruit((Fruit) fruitQuantity.toArray()[1], (Integer) fruitQuantity.toArray()[0]);
         }
