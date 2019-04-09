@@ -20,7 +20,7 @@ public class Cart {
         fruits.put(CHERRY, 0);
     }
 
-    public int getTotalAmount() {
+    public int computeTotalAmount() {
 
         int applesAmount = computeApplesAmount(fruits.get(APPLE));
 
@@ -54,7 +54,7 @@ public class Cart {
     }
 
     public int getTotalAmountIncludingLoyaltyProgram() {
-        return getTotalAmount() * (100 - LOYALTY_PROGRAM_DISCOUNT_PERCENT) / 100;
+        return computeTotalAmount() * (100 - LOYALTY_PROGRAM_DISCOUNT_PERCENT) / 100;
     }
 
 }

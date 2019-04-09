@@ -32,7 +32,7 @@ public class CartTest {
         cart.addFruit(APPLE, quantity);
 
         // WHEN
-        int totalAmount = cart.getTotalAmount();
+        int totalAmount = cart.computeTotalAmount();
 
         // THEN
         assertThat(totalAmount).isEqualTo(expectedAmount);
@@ -50,7 +50,7 @@ public class CartTest {
         cart.addFruit(BANANA, quantity);
 
         // WHEN
-        int totalAmount = cart.getTotalAmount();
+        int totalAmount = cart.computeTotalAmount();
 
         // THEN
         assertThat(totalAmount).isEqualTo(expectedAmount);
@@ -68,7 +68,7 @@ public class CartTest {
         cart.addFruit(CHERRY, quantity);
 
         // WHEN
-        int totalAmount = cart.getTotalAmount();
+        int totalAmount = cart.computeTotalAmount();
 
         // THEN
         assertThat(totalAmount).isEqualTo(expectedAmount);
@@ -81,7 +81,7 @@ public class CartTest {
         // Empty cart
 
         // WHEN
-        int totalAmount = cart.getTotalAmount();
+        int totalAmount = cart.computeTotalAmount();
 
         // THEN
         assertThat(totalAmount).isEqualTo(0);
@@ -116,7 +116,7 @@ public class CartTest {
         givenTheCartContains(fruitQuantities);
 
         // WHEN
-        int totalAmount = cart.getTotalAmount();
+        int totalAmount = cart.computeTotalAmount();
 
         // THEN
         assertThat(totalAmount).isEqualTo(expectedAmount);
